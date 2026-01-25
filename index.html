@@ -4,36 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simply Restored - Mobile</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="menuOverlay" class="menu-overlay">
-      <div class="menu-content">
-        <div class="menu-header">
-            <img src="simplylogo.svg" alt="Simply Restored" class="menu-logo">
-            <div class="close-btn" id="closeMenu">X</div>
+   <div id="menuOverlay" class="menu-overlay">
+    <div class="menu-content">
+        <div class="menu-top-section">
+            <div class="menu-header">
+                <img src="simplylogo.svg" alt="Simply Restored" class="menu-logo">
+                <div class="close-btn" id="closeMenu">X</div>
+            </div>
+            
+            <nav class="menu-links">
+                <a href="#">Who we are <span class="chevron">›</span></a>
+                <a href="#">Meet Abi <span class="chevron">›</span></a>
+                <a href="#">Services <span class="chevron">›</span></a>
+            </nav>
         </div>
-        
-        <nav class="menu-links">
-            <a href="who-we-are.html">Who we are <span class="chevron-right">›</span></a>
-            <a href="meet-abi.html">Meet Abi <span class="chevron-right">›</span></a>
-            <a href="services.html">Services <span class="chevron-right">›</span></a>
-        </nav>
 
-        <div class="menu-footer">
-            <div class="secondary-links">
-                <a href="index.html">Home</a>
-                <a href="appointments.html">Book an appointment</a>
+        <div class="menu-wave-container">
+            <svg class="menu-wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#3A4D44" d="M0,160L80,176C160,192,320,224,480,213.3C640,203,800,149,960,133.3C1120,117,1280,139,1360,149.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            </svg>
+            
+            <div class="menu-footer-content">
+                <div class="secondary-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Book an appointment</a>
+                </div>
+                <div class="contact-info">
+                    <p>616-566-2192</p>
+                    <p>6441 96th Ave. Zeeland, Michigan 49464</p>
+                </div>
             </div>
-            <div class="contact-info">
-                <p><strong>616-566-2192</strong></p>
-                <p>6441 96th Ave. Zeeland, Michigan 49464</p>
-            </div>
-        </div>
         </div>
     </div>
+</div>
 
 
 
