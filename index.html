@@ -9,16 +9,44 @@
 </head>
 <body>
 
+    <div id="menuOverlay" class="menu-overlay">
+      <div class="menu-content">
+        <div class="menu-header">
+            <img src="simplylogo.svg" alt="Simply Restored" class="menu-logo">
+            <div class="close-btn" id="closeMenu">X</div>
+        </div>
+        
+        <nav class="menu-links">
+            <a href="who-we-are.html">Who we are <span class="chevron-right">›</span></a>
+            <a href="meet-abi.html">Meet Abi <span class="chevron-right">›</span></a>
+            <a href="services.html">Services <span class="chevron-right">›</span></a>
+        </nav>
+
+        <div class="menu-footer">
+            <div class="secondary-links">
+                <a href="index.html">Home</a>
+                <a href="appointments.html">Book an appointment</a>
+            </div>
+            <div class="contact-info">
+                <p><strong>616-566-2192</strong></p>
+                <p>6441 96th Ave. Zeeland, Michigan 49464</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
    <header class="header">
     <div class="logo-container">
         <img src="simplylogo.svg" alt="Simply Restored Logo" class="main-logo">
     </div>
     
-    <div class="menu-button">
-        <div class="menu-circle">
-            <span></span>
-            <span></span>
-        </div>
+    <div class="menu-button" id="menuToggle">
+    <div class="menu-circle">
+        <span></span>
+        <span></span>
+    </div>
     </div>
     </header>
 
@@ -40,7 +68,7 @@
     </div>
         </section>
 
-<div class="global-wave-container">
+    <div class="global-wave-container">
     <svg viewBox="0 0 500 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M-20,80 C 100,20 150,180 300,100 C 400,50 480,150 520,100" 
               fill="transparent" 
@@ -48,11 +76,11 @@
               stroke-width="38" 
               stroke-linecap="round"/>
     </svg>
-</div>
+    </div>
 
 
 
-<section class="meet-abi">
+    <section class="meet-abi">
     <div class="meet-content">
         <h2 class="section-title">Meet Abi Simmons</h2>
         <p class="subtitle">Clinical Social Work / Therapist, LMSW</p>
@@ -71,7 +99,7 @@
             <p>...a therapist believes healing happens when you feel safe...</p>
         </div>
     </div>
-</div>
+    </div>
 
         <p class="as-seen">As seen on <span class="psych-link">Psychology Today</span></p>
 
@@ -125,7 +153,7 @@
         <section class="faq">
     <h2 class="section-title">All the A's to your Q's!</h2>
     
-<div class="faq-container">
+    <div class="faq-container">
     <div class="faq-card">
      <div class="faq-header">
         <p class="faq-text">What is the address to Simply Restored?</p>
@@ -140,7 +168,7 @@
             </br>
         </div>
     </div>
-</div>
+    </div>
 
     <div class="faq-card">
         <div class="faq-header">
@@ -199,7 +227,7 @@
 
 
 
-<script>
+    <script>
     document.querySelectorAll('.faq-card').forEach(card => {
         card.addEventListener('click', () => {
             // Optional: Close others
@@ -210,7 +238,28 @@
             card.classList.toggle('active');
         });
     });
-</script>
+    </script>
+
+    <script>
+    const menuBtn = document.getElementById('menuToggle'); // Use the ID we added earlier
+    const closeBtn = document.getElementById('closeMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    // Open
+    menuBtn.addEventListener('click', () => {
+        overlay.classList.add('open');
+    });
+
+    // Close
+    closeBtn.addEventListener('click', () => {
+        overlay.classList.remove('open');
+    });
+
+    // Close if clicking outside the white box
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('open');
+    });
+    </script>
 
 </body>
 </html>
