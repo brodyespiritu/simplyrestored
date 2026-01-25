@@ -236,54 +236,73 @@
 
     <footer class="dark-footer"></footer>
 
-    <div id="storyPopup" class="story-overlay">
-    <div class="story-content-card">
+   <div id="storyPopup" class="story-overlay">
+    <div class="story-content-card" id="swipeContainer">
         <div class="story-progress-container">
             <div class="progress-segment active"></div>
             <div class="progress-segment"></div>
             <div class="progress-segment"></div>
         </div>
 
-       <div class="story-track" id="storyTrack">
-    <div class="story-slide">
-        <h2 class="story-title-large">Your therapy<br>interests?</h2>
-        <div class="story-nav-list">
-            <button class="story-option" onclick="nextSlide('Individual')">Individual <span>›</span></button>
-            <button class="story-option" onclick="nextSlide('Couple')">Couple <span>›</span></button>
-            <button class="story-option" onclick="nextSlide('Families')">Families <span>›</span></button>
-        </div>
-        <div class="story-footer-logo">
-            <img src="simplylogo.svg" alt="Simply Restored">
-        </div>
-    </div>
+        <div class="story-close" onclick="closeStoryPopup()">✕</div>
 
-    <div class="story-slide">
-        <div class="story-slide-content">
-            <h2 class="story-title-individual">
-                Individual <br>
-                <span class="therapy-subtitle">therapy</span>
-            </h2>
-            
-            <p class="story-body-text">
-                At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others. Sessions are collaborative and tailored to your needs, whether you're navigating anxiety, stress, life transitions, relationship concerns, or simply wanting deeper self-understanding.
-            </p>
-
-            <button class="story-next-btn" onclick="closeStoryPopup()">
-                Next <span>›</span>
-            </button>
-        </div>
-    </div>
-    </div>
-
-            <div class="story-slide">
-                <h2 class="story-title-large" id="selectedInterest">Details</h2>
-                <p class="story-subtitle">We're here to support your journey.</p>
-                <button class="btn-filled-story" onclick="closeStoryPopup()">Get Started</button>
-                <button class="story-back-link" onclick="prevSlide()">‹ Back</button>
+        <div class="story-track" id="storyTrack">
+            <div class="story-slide" data-id="main-s1">
+                <h2 class="story-title-large">Your therapy<br>interests?</h2>
+                <div class="story-nav-list">
+                    <button class="story-option" onclick="navigateTo('in-s1')">Individual <span>›</span></button>
+                    <button class="story-option" onclick="navigateTo('c-s1')">Couples <span>›</span></button>
+                    <button class="story-option" onclick="navigateTo('f-s1')">Families <span>›</span></button>
+                </div>
+                <div class="story-footer-logo"><img src=""></div>
             </div>
+
+            <div class="story-slide green-bg" data-id="in-s1">
+                <h2 class="title-branch">Individual <span class="italic">therapy</span></h2>
+                <p class="body-text">At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others. Sessions are collaborative and tailored to your needs, whether you’re navigating anxiety, stress, life transitions, relationship concerns, or simply wanting deeper self-understanding.</p>
+                <button class="story-next-btn white-btn" onclick="navigateTo('in-s2')">Next <span>›</span></button>
+            </div>
+            <div class="story-slide" data-id="in-s2">
+    <div class="story-slide-content">
+        <h2 class="title-branch dark">
+            Individual <br>
+            <span class="italic-style">therapy</span>
+        </h2>
+        
+        <h3 class="story-subtitle-bold">Can help with</h3>
+
+        <div class="therapy-pill-container">
+            <div class="therapy-pill">Anxiety or stress</div>
+            <div class="therapy-pill">Life transitions and identity shifts</div>
+            <div class="therapy-pill">Relationship patterns</div>
+            <div class="therapy-pill">Emotional regulation and self-awareness</div>
+            <div class="therapy-pill">Personal growth and healing</div>
         </div>
+
+        <button class="story-next-btn dark-btn" onclick="navigateTo('in-s3', false)">
+            Next <span>›</span>
+        </button>
     </div>
-</div>
+    </div>
+            <div class="story-slide" data-id="in-s3">
+                <h2 class="title-branch dark">Individual <span class="italic">therapy</span></h2>
+                <div class="insurance-box">
+                    <p>Accepted Insurance</p>
+                    <img src="" class="ins-logo">
+                    <p class="fee">Out-of-pocket fee: <b>$100/session</b></p>
+                </div>
+                <button class="book-btn">Schedule appointment</button>
+                <p class="return-home" onclick="navigateTo('main-s1')">Return home</p>
+            </div>
+
+            <div class="story-slide green-bg" data-id="c-s1">
+                <h2 class="title-branch">Couples <span class="italic">therapy</span></h2>
+                <p class="body-text">Helping partners slow down unhelpful patterns...</p>
+                <button class="story-next-btn white-btn" onclick="navigateTo('c-s2')">Next <span>›</span></button>
+            </div>
+            </div>
+    </div>
+    </div>
 
 
 
@@ -329,74 +348,96 @@
     </script>
 
     <script>
-    const storyPopup = document.getElementById('storyPopup');
-    const storyTrack = document.getElementById('storyTrack');
-    const therapyCard = document.getElementById('therapyTrigger');
-    const segments = document.querySelectorAll('.progress-segment');
+     // 1. Initial Variables
+let currentIndex = 0;
+const track = document.getElementById('storyTrack');
+const card = document.querySelector('.story-content-card');
+const popup = document.getElementById('storyPopup');
 
-    // Trigger Popup
-    if (therapyCard) {
-        therapyCard.onclick = () => {
-            storyPopup.style.display = 'flex';
-            prevSlide(); // Ensure we start on slide 1
-        };
-    }
-
-    // Slide to selection
-    function nextSlide(choice) {
-    const card = document.querySelector('.story-content-card');
-    const track = document.getElementById('storyTrack');
-    const title = document.getElementById('selectedInterest');
-    const segments = document.querySelectorAll('.progress-segment');
-
-    if (track) {
-        // 1. Move the slide
-        track.style.transform = 'translateX(-50%)';
-        
-        // 2. Set the title text
-        if (title) title.innerText = choice;
-
-        // 3. CHECK FOR INDIVIDUAL: Apply green background
-        if (choice === 'Individual') {
-            card.classList.add('green-mode');
-        } else {
-            // Keep it white for Couple or Families
-            card.classList.remove('green-mode');
-        }
-
-        // 4. Update progress bar
-        if (segments[1]) segments[1].classList.add('active');
+// 2. Open/Close Logic
+function openStory() {
+    if (popup) {
+        popup.style.display = 'flex';
+        navigateTo('main-s1'); // Always start at the beginning
     }
 }
 
-// Update the reset logic to remove green mode when closing
 function closeStoryPopup() {
-    const card = document.querySelector('.story-content-card');
-    document.getElementById('storyPopup').style.display = 'none';
-    card.classList.remove('green-mode'); // Reset color for next time
-    prevSlide();
+    if (popup) {
+        popup.style.display = 'none';
+    }
 }
 
-    // Go back
-    function prevSlide() {
-        if (storyTrack) {
-            storyTrack.style.transform = 'translateX(0%)';
-            if (segments[1]) segments[1].classList.remove('active');
-        }
+// 3. Navigation Engine (Branching)
+function navigateTo(id) {
+    const slides = Array.from(document.querySelectorAll('.story-slide'));
+    const targetIndex = slides.findIndex(s => s.dataset.id === id);
+    
+    if (targetIndex !== -1) {
+        currentIndex = targetIndex;
+        updateUI(id);
+    }
+}
+
+// 4. UI Update Logic (Colors & Bars)
+function updateUI(id) {
+    const segments = document.querySelectorAll('.progress-segment');
+    const currentSlide = document.querySelector(`[data-id="${id}"]`);
+    
+    // Move the track: Each slide is 10% of the 1000% width
+    track.style.transform = `translateX(-${currentIndex * 10}%)`;
+
+    // Check for Green Background
+    const isGreen = currentSlide.classList.contains('green-bg');
+    if (isGreen) {
+        card.classList.add('green-mode');
+    } else {
+        card.classList.remove('green-mode');
     }
 
-    // Close
-    function closeStoryPopup() {
-        storyPopup.style.display = 'none';
-    }
+    // Reset and Update Progress Bars
+    segments.forEach(s => s.classList.remove('active'));
+    
+    // Logic: s1=1 bar, s2=2 bars, s3=3 bars
+    if (id.includes('s1')) segments[0].classList.add('active');
+    if (id.includes('s2')) { segments[0].classList.add('active'); segments[1].classList.add('active'); }
+    if (id.includes('s3')) { segments[0].classList.add('active'); segments[1].classList.add('active'); segments[2].classList.add('active'); }
+}
 
-    // Close when clicking outside the white card
-    window.onclick = function(event) {
-        if (event.target == storyPopup) {
-            closeStoryPopup();
-        }
+// 5. Swipe Support
+let touchStartX = 0;
+
+card.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+card.addEventListener('touchend', e => {
+    let touchEndX = e.changedTouches[0].screenX;
+    let diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) { // Swipe threshold
+        if (diff > 0) moveManual(1);  // Left swipe -> Next
+        else moveManual(-1);         // Right swipe -> Prev
     }
-</script>
+}, { passive: true });
+
+function moveManual(direction) {
+    const slides = Array.from(document.querySelectorAll('.story-slide'));
+    let nextIdx = currentIndex + direction;
+
+    // Boundary check
+    if (nextIdx >= 0 && nextIdx < slides.length) {
+        currentIndex = nextIdx;
+        const nextSlideId = slides[currentIndex].dataset.id;
+        updateUI(nextSlideId);
+    }
+}
+
+// Close on background click
+window.onclick = function(event) {
+    if (event.target == popup) closeStoryPopup();
+}
+    </script>
 
 
 
