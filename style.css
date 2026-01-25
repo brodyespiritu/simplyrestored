@@ -1044,12 +1044,91 @@
         margin-bottom: 20px;
     }
 
-    .dark-footer {
-        height: 120px;
-        background-color: var(--dark-green);
-    }
+  /* 1. Full-Width Background Wrapper */
+.footer-wrapper {
+  background-color: #3d4c44 !important; /* Exact dark slate green */
+  color: #ffffff !important;
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 80px 10%; 
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
+/* 2. Flex Rows */
+.footer-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px; /* Adjust this to control how far apart the sides are */
+  margin: 0 auto 80px auto; /* Centers the content and adds bottom gap */
+}
+
+.footer-row:last-child {
+  margin-bottom: 0;
+}
+
+/* 3. Column Alignment */
+.footer-col.left {
+  text-align: left;
+}
+
+.footer-col.right {
+  text-align: right;
+}
+
+/* 4. Text & Headers */
+.footer-heading {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* 5. Logo & Address */
+.footer-brand img {
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+.footer-address {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.address-title {
+  font-weight: 900;
+  display: block;
+}
+
+  
+    
+
+
+
+}
 /* Hide content on desktop for "mobile only" effect */
 @media only screen and (min-width: 769px) {
     body {
