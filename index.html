@@ -100,16 +100,15 @@
         </div>
 
         <div class="side-card">
-            <p>Hi, I'm Abi Simmons. I'm a therapist who believes...</p>
+            <p> Hi there! I'm Abi Simmons. <br> </br> I believe meaningful change happens in the context of safe, supportive relationships. At Simply Restored, my work is grounded in helping individuals, couples, and families better understand themselves and each other, especially when life feels overwhelming, disconnected, or stuck.</p>
         </div>
 
         <div class="side-card">
-            <p>...a therapist believes healing happens when you feel safe...</p>
+            <p>My approach is relational, collaborative, and thoughtful. Rather than focusing on blame or quick fixes, I help clients slow down, recognize patterns, and build insight that leads to healthier communication and stronger connection. I strive to create a calm, nonjudgmental space where people feel heard, respected, and supported.</p>
         </div>
     </div>
     </div>
 
-        <p class="as-seen">As seen on <span class="psych-link">Psychology Today</span></p>
 
         <div class="cta-stack">
             <button class="btn btn-filled">View services</button>
@@ -121,47 +120,66 @@
 
 
 
+    <section class="services-container">
+  <h2 class="services-header">Services provided for <em>you.</em></h2>
 
-        <section class="services">
-            <h2 class="section-title">Services provided<br>for <em>you.</em></h2>
-            
-            <div class="service-list">
-                <div class="service-card" id="therapyTrigger" onclick="openStory()">
-                    <div class="icon-square"><img src="person.svg" alt="Coaching Icon" class="coaching-icon"></div>
-                    <div class="service-info">
-                        <h3>Therapy</h3>
-                        <p>At Simply Restored, therapy is about restoring connection — within yourself, your relationships, and your family.</p>
-                    </div>
-                    <div class="arrow-btn">›</div>
-                </div>
+  <div id="service-therapy" class="service-horizontal-row" onclick="openStory()">
+    <div class="service-icon-box">
+      <img src="person.svg" alt="Therapy">
+    </div>
+    <div class="service-details">
+      <h3>Therapy</h3>
+      <p>Anxiety and stress management, depression and mood support, trauma-informed care, life transitions and adjustment, and self-esteem and identity work.</p>
+    </div>
+    <div class="service-arrow-box">
+      <span class="chevron-icon">❯</span>
+    </div>
+  </div>
 
-                <div class="service-card">
-                    <div class="icon-square"> <img src="hand.svg" alt="Coaching Icon" class="coaching-icon"></div>
-                    <div class="service-info">
-                        <h3>Mediation</h3>
-                        <p>Short-term, goal focused support process focused on resolving specific issues, improving communication, and reaching practical agreements in a neutral setting.</p>
-                    </div>
-                    <div class="arrow-btn">›</div>
-                </div>
+  <div id="service-mediation" class="service-horizontal-row" onclick="openStoryAt('med-s1')">
+    <div class="service-icon-box">
+      <img src="hand.svg" alt="Mediation">
+    </div>
+    <div class="service-details">
+      <h3>Mediation</h3>
+      <p>Anxiety and stress management, depression and mood support, trauma-informed care, life transitions and adjustment, and self-esteem and identity work.</p>
+    </div>
+    <div class="service-arrow-box">
+      <span class="chevron-icon">❯</span>
+    </div>
+  </div>
 
-                <div class="service-card">
-                    <div class="icon-square">
-                        <img src="calendar.svg" alt="Coaching Icon" class="coaching-icon">
-                    </div>
-                    <div class="service-info">
-                        <h3>Coaching</h3>
-                        <p>Life coaching is a forward-focused, goal-oriented service designed to support clarity, growth, and intentional change. Coaching focuses on the present and future, helping clients identify goals, build skills, and take actionable steps toward the life they want.</p>
-                    </div>
-                    <div class="arrow-btn">›</div>
-                </div>
-            </div>
+  <div id="service-coaching" class="service-horizontal-row"  onclick="openStoryAt('co-s1')">
+    <div class="service-icon-box">
+      <img src="calendar.svg" alt="Coaching">
+    </div>
+    <div class="service-details">
+      <h3>Coaching</h3>
+      <p>Anxiety and stress management, depression and mood support, trauma-informed care, life transitions and adjustment, and self-esteem and identity work.</p>
+    </div>
+    <div class="service-arrow-box">
+      <span class="chevron-icon">❯</span>
+    </div>
+  </div>
 
-            <div class="service-footer">
-                <button class="btn btn-filled">Book an appointment</button>
-                <p class="fine-print">or</p>
-                <a href="#" class="insurance-link">View accepted insurance and rates</a>
-            </div>
-        </section>
+  <div class="services-footer">
+    <button class="btn-book">Book an appointment</button>
+    <p class="text-or">or</p>
+    <a href="#" class="link-rates">View accepted Insurance and rates</a>
+  </div>
+</section>
+
+
+
+
+        
+
+
+
+
+
+
+
 
         <section class="faq">
     <h2 class="section-title">All the A's to your Q's!</h2>
@@ -248,9 +266,6 @@
     </div>
     
     <div class="footer-col right">
-      <div class="footer-brand">
-        <img src="your-logo-file.png" alt="Simply Restored">
-      </div>
       <div class="footer-address">
         <span class="address-title">Address</span>
         6441 96th Ave.<br>
@@ -271,9 +286,8 @@
     </div>
 
     <div class="footer-col right">
-      <h2 class="footer-heading">Company</h2>
+      <h2 class="footer-heading">Resources</h2>
       <ul class="footer-links">
-        <li><a href="#">Schedule an appointment</a></li>
         <li><a href="#">Refer a Patient</a></li>
         <li><a href="#">Online Therapy</a></li>
         <li><a href="#">Business Portal</a></li>
@@ -307,6 +321,76 @@
         <div class="story-close" onclick="closeStoryPopup()">✕</div>
 
         <div class="story-track" id="storyTrack">
+            <div class="story-slide green-bg" data-id="co-s1">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch">Coaching <span class="italic-style">services</span></h2>
+        <p class="body-text">Coaching at Simply Restored is about moving forward. We help you identify where you want to be and create a practical roadmap to get there.</p>
+    </div>
+    <button class="story-next-btn white-btn" onclick="navigateTo('co-s2')">Next <span>›</span></button>
+</div>
+
+<div class="story-slide" data-id="co-s2">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">Coaching <br><span class="italic-style">focus</span></h2>
+        <h3 class="story-subtitle-bold">Perfect for</h3>
+        <div class="therapy-pill-container">
+            <div class="therapy-pill">Career Transitions</div>
+            <div class="therapy-pill">Goal Setting</div>
+            <div class="therapy-pill">Personal Accountability</div>
+            <div class="therapy-pill">Mindset Shifts</div>
+        </div>
+    </div>
+    <button class="story-next-btn dark-btn" onclick="navigateTo('co-s3')">Next <span>›</span></button>
+</div>
+
+<div class="story-slide" data-id="co-s3">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">Coaching <br><span class="italic-style">details</span></h2>
+        <div class="fee-container">
+            <p class="fee-label">Coaching Fee</p>
+            <p class="fee-amount">$125/session</p>
+        </div>
+        <p class="body-text dark" style="font-size: 13px; margin-top: 10px;">Coaching is a professional development service and is not eligible for insurance reimbursement.</p>
+    </div>
+    <div class="story-footer-actions">
+        <button class="book-btn-final" onclick="window.location.href='/book'">Start Coaching</button>
+        <p class="return-home-link" onclick="navigateTo('main-s1')">Return home</p>
+    </div>
+</div>
+            <div class="story-slide green-bg" data-id="med-s1">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch">Mediation <span class="italic-style">services</span></h2>
+        <p class="body-text">Our mediation services provide a neutral, calm environment to help parties navigate conflict and reach practical agreements.</p>
+    </div>
+    <button class="story-next-btn white-btn" onclick="navigateTo('med-s2')">Next <span>›</span></button>
+</div>
+
+<div class="story-slide" data-id="med-s2">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">Mediation <br><span class="italic-style">focus</span></h2>
+        <h3 class="story-subtitle-bold">Can help with</h3>
+        <div class="therapy-pill-container">
+            <div class="therapy-pill">Co-parenting</div>
+            <div class="therapy-pill">Communication</div>
+            <div class="therapy-pill">Family Conflict</div>
+        </div>
+    </div>
+    <button class="story-next-btn dark-btn" onclick="navigateTo('med-s3')">Next <span>›</span></button>
+</div>
+
+<div class="story-slide" data-id="med-s3">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">Mediation <br><span class="italic-style">details</span></h2>
+        <div class="fee-container">
+            <p class="fee-label">Mediation Fee</p>
+            <p class="fee-amount">$150/session</p>
+        </div>
+    </div>
+    <div class="story-footer-actions">
+        <button class="book-btn-final" onclick="window.location.href='/book'">Request Mediation</button>
+        <p class="return-home-link" onclick="navigateTo('main-s1')">Return home</p>
+    </div>
+</div>
             <div class="story-slide" data-id="main-s1">
                 <h2 class="story-title-large">Your therapy<br>interests?</h2>
                 <div class="story-nav-list">
@@ -320,7 +404,7 @@
             <div class="story-slide green-bg" data-id="in-s1">
     <div class="story-slide-top-group">
         <h2 class="title-branch">Individual <span class="italic-style">therapy</span></h2>
-        <p class="body-text">At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others.</p>
+        <p class="body-text">At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others. Sessions are collaborative and tailored to your needs, whether you’re navigating anxiety, stress, life transitions, relationship concerns, or simply wanting deeper self-understanding.</p>
     </div>
     <button class="story-next-btn white-btn" onclick="navigateTo('in-s2', false)">
         Next <span>›</span>
@@ -516,6 +600,25 @@ function moveManual(direction) {
 // Close on background click
 window.onclick = function(event) {
     if (event.target == popup) closeStoryPopup();
+}
+    </script>
+
+    <script>
+        function openStoryAt(slideId) {
+    if (popup) {
+        popup.style.display = 'flex';
+        navigateTo(slideId); // This jumps to the specific ID immediately
+    }
+}
+    </script>
+
+    <script>
+        function openStoryAt(slideId) {
+    const popup = document.getElementById('storyPopup');
+    if (popup) {
+        popup.style.display = 'flex';
+        navigateTo(slideId); // This uses your existing logic to jump to the right slide
+    }
 }
     </script>
 

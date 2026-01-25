@@ -819,6 +819,128 @@
     text-decoration: none;
     }
 
+ 
+
+
+    /* Container and Typography */
+.services-container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  padding-top: -20px;
+}
+
+.services-header {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 90%;
+}
+
+.services-header em {
+  font-family: serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Row Styling - Forced Horizontal */
+.service-horizontal-row {
+  display: flex !important;
+  flex-direction: row !important; /* Prevents stacking on mobile */
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Icon Box - Fixed size so it doesn't shrink */
+.service-icon-box {
+  width: clamp(60px, 10vw, 80px);
+  height: clamp(60px, 10vw, 80px);
+  background-color: #c9d6b8;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Important: keeps the box square */
+}
+
+.service-icon-box img {
+  width: 50%;
+  height: auto;
+}
+
+/* Text Content Area */
+.service-details {
+  flex: 1; /* Occupies all available middle space */
+  text-align: left;
+}
+
+.service-details h3 {
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.service-details p {
+  font-size: clamp(12px, 3vw, 15px);
+  line-height: 1.4;
+  color: #444;
+  margin: 0;
+}
+
+/* Grey Arrow Button - Fixed size */
+.service-arrow-box {
+  width: 44px;
+  height: 44px;
+  background-color: #efefef;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chevron-icon {
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+}
+
+/* Footer Section */
+.services-footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-book {
+  background-color: #3d4c44;
+  color: #ffffff;
+  padding: 16px 40px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-or {
+  margin: 12px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.link-rates {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 600;
+}
 
 
 
@@ -826,79 +948,7 @@
 
 
 
-
-    .services {
-        background-color: white;
-        width: 100vw; 
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    top: 50px;
-    }
-
-    .service-card {
-        display: flex;
-        align-items: center;
-        background: white;
-        padding: 15px;
-        margin-bottom: 12px;
-        border-radius: 12px;
-        text-align: left;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-    .service-card .icon-square img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .icon-square {
-        background-color: #C6D6B1;
-        min-width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        margin-right: 15px;
-    }
-
-    .service-info h3 {
-        font-size: 18px;
-        margin-bottom: 4px;
-    }
-
-    .service-info p {
-        font-size: 11px;
-        color: #777;
-        line-height: 1.3;
-    }
-
-    .arrow-btn {
-        margin-left: auto;
-        color: #ccc;
-        font-size: 28px;
-        padding-left: 10px;
-    }
-
-    .service-footer {
-        margin-top: 30px;
-    }
-
-    .fine-print {
-        font-size: 12px;
-        margin: 8px 0;
-        color: #999;
-    }
-
-    .insurance-link {
-        font-size: 12px;
-        color: var(--text-black);
-        text-decoration: underline;
-    }
-
+    
     /* FAQ */
     .faq-container {
     display: flex;
