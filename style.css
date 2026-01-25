@@ -467,14 +467,23 @@
     max-width: 500px; /* Adjust this to match your overall site width */
     margin: 30px auto;
     }
-
-    .faq-card {
-    background-color: #ffffff;
-    border-radius: 10px; /* High rounding */
-    padding: 12px 12px 12px 25px; /* Large left padding for text */
+   .faq-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Pushes icon to the right */
+    width: 100%;
+    }
+
+  .faq-card {
+    cursor: pointer;
+    display: block; /* Ensure it's a block container */
+    background-color: #ffffff; /* Sets background to white */
+    border-radius: 12px;       /* Keeps those nice rounded corners */
+    margin-bottom: 5px;       /* Adds spacing between questions */
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
     }
 
     .faq-text {
@@ -527,6 +536,38 @@
         text-align: left;
         font-size: 14px;
         font-weight: 600;
+    }
+    .faq-answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    }
+    .faq-answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr; /* Starts at 0 fraction of height */
+    transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    overflow: hidden;
+    }
+    .faq-card.active .faq-answer-wrapper {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    }
+    .faq-answer-content {
+    min-height: 0; 
+    padding: 0 10px 15px 10px; /* Adjust spacing here */
+    }
+    .faq-card.active .faq-answer {
+    max-height: 200px; /* Adjust if your answers are very long */
+    opacity: 1;
+    padding-top: 15px; /* Spacing between question and answer */
+    padding-bottom: 10px;
+    }
+    .faq-card.active .chevron {
+    transform: rotate(180deg);
+    display: inline-block;
+    transition: transform 0.3s ease;
     }
 
     .chevron-box {
