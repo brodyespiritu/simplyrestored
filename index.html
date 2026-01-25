@@ -258,19 +258,19 @@
             </div>
 
             <div class="story-slide green-bg" data-id="in-s1">
-                <h2 class="title-branch">Individual <span class="italic">therapy</span></h2>
-                <p class="body-text">At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others. Sessions are collaborative and tailored to your needs, whether you’re navigating anxiety, stress, life transitions, relationship concerns, or simply wanting deeper self-understanding.</p>
-                <button class="story-next-btn white-btn" onclick="navigateTo('in-s2')">Next <span>›</span></button>
-            </div>
-            <div class="story-slide" data-id="in-s2">
-    <div class="story-slide-content">
-        <h2 class="title-branch dark">
-            Individual <br>
-            <span class="italic-style">therapy</span>
-        </h2>
-        
-        <h3 class="story-subtitle-bold">Can help with</h3>
+    <div class="story-slide-top-group">
+        <h2 class="title-branch">Individual <span class="italic-style">therapy</span></h2>
+        <p class="body-text">At Simply Restored, individual therapy focuses on understanding your experiences, patterns, and emotional responses, while building tools to help you feel more grounded, confident, and connected to yourself and others.</p>
+    </div>
+    <button class="story-next-btn white-btn" onclick="navigateTo('in-s2', false)">
+        Next <span>›</span>
+    </button>
+</div>
 
+<div class="story-slide" data-id="in-s2">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">Individual <br><span class="italic-style">therapy</span></h2>
+        <h3 class="story-subtitle-bold">Can help with</h3>
         <div class="therapy-pill-container">
             <div class="therapy-pill">Anxiety or stress</div>
             <div class="therapy-pill">Life transitions and identity shifts</div>
@@ -278,31 +278,51 @@
             <div class="therapy-pill">Emotional regulation and self-awareness</div>
             <div class="therapy-pill">Personal growth and healing</div>
         </div>
+    </div>
+    <button class="story-next-btn dark-btn" onclick="navigateTo('in-s3', false)">
+        Next <span>›</span>
+    </button>
+</div>
 
-        <button class="story-next-btn dark-btn" onclick="navigateTo('in-s3', false)">
-            Next <span>›</span>
+<div class="story-slide" data-id="in-s3">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch dark">
+            Individual <br>
+            <span class="italic-style">therapy</span>
+        </h2>
+        
+        <h3 class="story-subtitle-bold">Accepted Insurance</h3>
+
+        <div class="insurance-container">
+            <img src="bcbs.svg" class="insurance-logo-large" alt="BCBS Michigan">
+            <img src="priorityhealth.svg" class="insurance-logo-small" alt="Priority Health">
+        </div>
+
+        <div class="fee-container">
+            <p class="fee-label">Out-of-pocket fee</p>
+            <p class="fee-amount">$100/session</p>
+        </div>
+    </div>
+
+    <div class="story-footer-actions">
+        <button class="book-btn-final" onclick="window.location.href='/book'">
+            Schedule appointment
         </button>
+        <p class="return-home-link" onclick="navigateTo('main-s1', false)">
+            Return home
+        </p>
     </div>
-    </div>
-            <div class="story-slide" data-id="in-s3">
-                <h2 class="title-branch dark">Individual <span class="italic">therapy</span></h2>
-                <div class="insurance-box">
-                    <p>Accepted Insurance</p>
-                    <img src="" class="ins-logo">
-                    <p class="fee">Out-of-pocket fee: <b>$100/session</b></p>
-                </div>
-                <button class="book-btn">Schedule appointment</button>
-                <p class="return-home" onclick="navigateTo('main-s1')">Return home</p>
-            </div>
+</div>
 
-            <div class="story-slide green-bg" data-id="c-s1">
-                <h2 class="title-branch">Couples <span class="italic">therapy</span></h2>
-                <p class="body-text">Helping partners slow down unhelpful patterns...</p>
-                <button class="story-next-btn white-btn" onclick="navigateTo('c-s2')">Next <span>›</span></button>
-            </div>
-            </div>
+<div class="story-slide green-bg" data-id="c-s1">
+    <div class="story-slide-top-group">
+        <h2 class="title-branch">Couples <span class="italic-style">therapy</span></h2>
+        <p class="body-text">Helping partners slow down unhelpful patterns, improve communication, and better understand each other's emotional experiences.</p>
     </div>
-    </div>
+    <button class="story-next-btn white-btn" onclick="navigateTo('c-s2', false)">
+        Next <span>›</span>
+    </button>
+</div>
 
 
 
