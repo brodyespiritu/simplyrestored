@@ -187,8 +187,16 @@
     }
 
     /* Ensure the hero doesn't overlap the logo */
+    .hero h1{
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        line-height: 1.1; /* Tightens the gap between the two lines */
+        color: #3A4D44;
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
     .hero {
-    margin-top: 0;
+    margin-top: -20px;
     padding-top: 40px; 
     position: relative;
     z-index: 1;
@@ -245,7 +253,6 @@
     .menu-circle {
         width: 38px;
         height: 38px;
-        border: 1px solid #ccc;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
@@ -255,8 +262,8 @@
     }
 
     .menu-circle span {
-        width: 16px;
-        height: 1px;
+        width: 25px;
+        height: 2px;
         background: #000;
     }
 
@@ -853,32 +860,32 @@
 
 
     /* Container and Typography */
-.services-container {
+    .services-container {
   background-color: #ffffff;
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
   font-family: 'Inter', sans-serif;
   padding-top: 20px;
-}
+    }
 
-.services-header {
+    .services-header {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 35px;
   text-align: center;
   margin-bottom: 40px;
   line-height: 90%;
-}
+    }
 
-.services-header em {
+    .services-header em {
   font-family: serif;
   font-style: italic;
   font-weight: 400;
-}
+    }
 
-/* Row Styling - Forced Horizontal */
-.service-horizontal-row {
+    /* Row Styling - Forced Horizontal */
+    .service-horizontal-row {
   display: flex !important;
   flex-direction: row !important; /* Prevents stacking on mobile */
   align-items: center;
@@ -887,10 +894,10 @@
   cursor: pointer;
   gap: 20px;
   width: 100%;
-}
+    }
 
-/* Icon Box - Fixed size so it doesn't shrink */
-.service-icon-box {
+    /* Icon Box - Fixed size so it doesn't shrink */
+    .service-icon-box {
   width: clamp(60px, 10vw, 80px);
   height: clamp(60px, 10vw, 80px);
   background-color: #c9d6b8;
@@ -899,34 +906,34 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0; /* Important: keeps the box square */
-}
+    }
 
-.service-icon-box img {
+    .service-icon-box img {
   width: 50%;
   height: auto;
-}
+    }
 
-/* Text Content Area */
-.service-details {
+    /* Text Content Area */
+    .service-details {
   flex: 1; /* Occupies all available middle space */
   text-align: left;
-}
+    }
 
-.service-details h3 {
+    .service-details h3 {
   font-size: clamp(18px, 4vw, 24px);
   font-weight: 700;
   margin: 0 0 4px 0;
-}
+    }
 
-.service-details p {
+    .service-details p {
   font-size: clamp(12px, 3vw, 15px);
   line-height: 1.4;
   color: #444;
   margin: 0;
-}
+    }
 
-/* Grey Arrow Button - Fixed size */
-.service-arrow-box {
+    /* Grey Arrow Button - Fixed size */
+    .service-arrow-box {
   width: 44px;
   height: 44px;
   background-color: #efefef;
@@ -935,21 +942,21 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-}
+    }
 
-.chevron-icon {
+    .chevron-icon {
   font-size: 16px;
   color: #666;
   font-weight: bold;
-}
+    }
 
-/* Footer Section */
-.services-footer {
+    /* Footer Section */
+    .services-footer {
   text-align: center;
   margin-top: 50px;
-}
+    }
 
-.btn-book {
+    .btn-book {
   background-color: #3d4c44;
   color: #ffffff;
   padding: 16px 40px;
@@ -958,19 +965,19 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-}
+    }
 
-.text-or {
+    .text-or {
   margin: 12px 0;
   color: #888;
   font-size: 14px;
-}
+    }
 
-.link-rates {
+    .link-rates {
   color: #000;
   text-decoration: underline;
   font-weight: 600;
-}
+    }
 
 
 
@@ -1125,7 +1132,7 @@
     }
 
   /* 1. Full-Width Background Wrapper */
-.footer-wrapper {
+    .footer-wrapper {
   background-color: #3d4c44 !important; /* Exact dark slate green */
   color: #ffffff !important;
   width: 100vw !important;
@@ -1137,88 +1144,239 @@
   padding: 80px 10%; 
   box-sizing: border-box;
   font-family: sans-serif;
-}
+    }
 
-/* 2. Flex Rows */
-.footer-row {
+    /* 2. Flex Rows */
+    .footer-row {
   display: flex !important;
   justify-content: space-between !important;
   align-items: flex-start;
   width: 100%;
   max-width: 1200px; /* Adjust this to control how far apart the sides are */
   margin: 0 auto 80px auto; /* Centers the content and adds bottom gap */
-}
+    }
 
-.footer-row:last-child {
+    .footer-row:last-child {
   margin-bottom: 0;
-}
+    }
 
-/* 3. Column Alignment */
-.footer-col.left {
+    /* 3. Column Alignment */
+    .footer-col.left {
   text-align: left;
-}
+    }
 
-.footer-col.right {
+    .footer-col.right {
   text-align: right;
-}
+    }
 
-/* 4. Text & Headers */
-.footer-heading {
+    /* 4. Text & Headers */
+    .footer-heading {
   font-size: 32px;
   font-weight: 700;
   margin: 0 0 25px 0;
   color: #ffffff;
-}
+    }
 
-.footer-links {
+    .footer-links {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
-}
+    }
 
-.footer-links li {
+    .footer-links li {
   margin-bottom: 15px;
-}
+    }
 
-.footer-links a {
+    .footer-links a {
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
   opacity: 0.9;
-}
+    }
 
-/* 5. Logo & Address */
-.footer-brand img {
+    /* 5. Logo & Address */
+    .footer-brand img {
   width: 220px;
   margin-bottom: 20px;
-}
+    }
 
-.footer-address {
+    .footer-address {
   font-size: 14px;
   line-height: 1.5;
-}
+    }
 
-.address-title {
+    .address-title {
   font-weight: 900;
   display: block;
-}
+    }
 
   
     
 
 
-
 }
-/* Hide content on desktop for "mobile only" effect */
-@media only screen and (min-width: 769px) {
-    body {
-        background: #333;
+
+
+
+
+
+@media screen and (min-width: 1024px) {
+    /* 1. LAYOUT RESET & CONTAINER */
+    main { 
+        display: block !important; 
+        background-color: #f9f9f9; /* The subtle off-white from Figma */
+    }
+
+    /* 2. THE FLOATING HEADER */
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 100px;
+        background: transparent;
+        z-index: 100;
+    }
+
+    .main-logo {
+        width: 320px; /* Matching the massive Figma scale */
+        height: auto;
+    }
+
+    /* Logic for the 4 nav items in your Figma (Home, About, etc.) */
+    .header::after {
+        content: "Home      About      Services      Contact";
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        word-spacing: 25px;
+        color: #000;
+    }
+
+    .menu-button { display: none; } /* Hide mobile burger */
+
+    /* 3. THE HERO GRID */
+    .hero {
+        display: grid;
+        /* Col 1: Drawing | Col 2: Spacer | Col 3: Text Content */
+        grid-template-columns: 1.2fr 0.1fr 1fr;
+        grid-template-areas: "drawing . content";
+        align-items: center;
+        min-height: 100vh;
+        padding: 100px 100px 0 0; /* Bleeds left, pads right */
+        margin: 0;
+        position: relative;
+        overflow: visible;
+    }
+
+    /* The Architectural Drawing (Left) */
+    .illustration-container {
+        grid-area: drawing;
+        width: 110%; /* Makes it bleed off the left edge */
+        margin-left: -5%;
+        align-self: end; /* Sits on the bottom line */
+        z-index: 2;
+    }
+
+    .hero-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* The Text Content (Right) */
+    .hero h1 {
+        grid-area: content;
+        font-family: 'Inter', sans-serif; /* Per Figma screenshot */
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.05;
+        text-align: right;
+        margin: 0 0 15px 0;
+        color: #000;
+    }
+
+    .hero-sub {
+        grid-area: content;
+        font-size: 22px;
+        color: #444;
+        text-align: right;
+        margin: 180px 0 0 0; /* Manual spacing for Figma alignment */
+    }
+
+    .credentials {
+        grid-area: content;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: right;
+        margin: 280px 0 0 0;
+    }
+
+    /* 4. THE PILL BUTTONS (Figma Styled) */
+    .hero .cta-stack {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        margin: 400px 0 0 0;
+        width: 100%;
+    }
+
+    .hero .btn {
+        width: 380px; /* Precise Figma width */
+        height: 58px;
+        border-radius: 50px; /* Exact pill shape */
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        color: white;
+        transition: 0.3s ease;
+        border: none;
     }
-   
-    header, main, footer { display: none; }
+
+    .btn-filled {
+        background-color: #465147 !important; /* Sage Green */
+        color: #ffffff !important;
+    }
+
+    .btn-filled a { color: #fff; text-decoration: none; }
+
+    .btn-outline {
+        background-color: transparent !important;
+        border: 1.5px solid #465147 !important;
+        color: #465147 !important;
+    }
+
+    /* 5. THE WAVE CURVE (A space to breath...) */
+    .global-wave-container {
+        position: relative;
+        margin-top: -120px; /* Pulls it up into the Hero territory */
+        z-index: 5;
+    }
+
+    .global-wave-container svg {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Logic for the curved text "A space to breath..." */
+    /* This assumes you have that text in your HTML wave container */
+    .global-wave-container::before {
+        content: "A   s p a c e   t o   b r e a t h ,   u n p a c k ,   a n d   b e g i n   a g a i n .";
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        letter-spacing: 8px;
+        color: #465147;
+        opacity: 0.8;
+    }
 }
