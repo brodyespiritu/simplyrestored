@@ -518,6 +518,155 @@
     }
 
     /* Service Cards */
+
+    /* Overlay Background */
+    /* Full screen dimmed background */
+.story-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15); /* Light dim as per screenshot */
+    z-index: 100000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* The White Card */
+    .story-content-card {
+    background: white;
+    width: 92%;
+    max-width: 420px;
+    height: 85vh;
+    border-radius: 45px; /* Extra rounded corners */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    /* 200% Track for Sliding */
+    .story-track {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .story-slide {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 40px 40px 40px;
+    text-align: center;
+    flex-shrink: 0;
+    }
+
+    /* This class will be added only when 'Individual' is clicked */
+    .story-content-card.green-mode .story-slide:last-child {
+    background-color: #2A3D34;
+    color: #ffffff;
+    }
+
+    .story-content-card.green-mode .story-slide:last-child .story-title-large {
+    color: #ffffff;
+    }
+
+/* Ensure progress bars stay visible on green */
+    .story-content-card.green-mode .progress-segment.active {
+    background-color: #ffffff;
+    }
+
+    /* Typography to match screenshot */
+    .story-title-large {
+    font-size: 42px;
+    font-weight: 800;
+    color: #3A4D44;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    letter-spacing: -1.5px;
+    }
+
+    .story-option {
+    background: none;
+    border: none;
+    font-size: 36px;
+    font-weight: 500;
+    color: #4A5D54; /* Sage-tinted dark grey */
+    margin-bottom: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    }
+
+    /* Style the italicized 'therapy' word */
+    .therapy-subtitle {
+    font-style: italic;
+    font-weight: 300;
+    display: block;
+    margin-top: -10px; /* Pulls it closer to 'Individual' */
+    }
+
+    /* Style the white pill button */
+    .story-next-btn {
+    background: white;
+    color: #3A4D44; /* Your green */
+    border: none;
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top:  110px; /* Pushes it to the bottom */
+}
+
+    .story-option span {
+        font-weight: 300;
+        color: #A0A0A0;
+        font-size: 30px;
+    }
+    /* Progress Bars */
+    .story-progress-container {
+    display: flex;
+    gap: 10px;
+    padding: 0 30px;
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    z-index: 20; /* High z-index to stay above the sliding track */
+    }
+    .progress-segment {
+    flex: 1;
+    height: 4px;
+    background: #E8E8E8;
+    border-radius: 10px;
+    }
+
+    .progress-segment.active { background: #1a1a1a; }
+
+    .story-footer-logo img {
+        width: 140px;
+        margin-top: auto;
+        opacity: 0.9;
+        padding: 30px;
+    }
+
+
+
+
+
+
+
+
+
+
+
     .services {
         background-color: white;
         width: 100vw; 
