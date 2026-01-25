@@ -125,46 +125,92 @@
         <section class="faq">
     <h2 class="section-title">All the A's to your Q's!</h2>
     
-    <div class="faq-container">
-        <div class="faq-card">
-            <p class="faq-text">What is the address to Simply Restored?</p>
-            <div class="faq-icon-box">
-                <span class="chevron">▼</span>
-            </div>
+<div class="faq-container">
+    <div class="faq-card">
+     <div class="faq-header">
+        <p class="faq-text">What is the address to Simply Restored?</p>
+        <div class="faq-icon-box">
+            <span class="chevron">▼</span>
         </div>
+    </div>
+    <div class="faq-answer-wrapper">
+        <div class="faq-answer-content">
+            <br>
+            <p> Our address is </p>
+            </br>
+        </div>
+    </div>
+</div>
 
-        <div class="faq-card">
+    <div class="faq-card">
+        <div class="faq-header">
             <p class="faq-text">What insurance do you accept?</p>
             <div class="faq-icon-box">
                 <span class="chevron">▼</span>
             </div>
         </div>
+        <div class="faq-answer-wrapper">
+            <div class="faq-answer-content">
+                <br
+                <p>We accept most major insurance providers. Please call our office to verify your specific plan.</p>
+                </br>
+            </div>
+        </div>
+    </div>
 
-        <div class="faq-card">
+     <div class="faq-card">
+        <div class="faq-header">
             <p class="faq-text">Do I need to know what to talk about before my first session?</p>
             <div class="faq-icon-box">
                 <span class="chevron">▼</span>
             </div>
         </div>
+        <div class="faq-answer-wrapper">
+            <div class="faq-answer-content">
+                <br>
+                <p>No, you don't need to know what to talk about before your first session. We'll work together to explore your concerns and goals.</p>
+                </br>
+            </div>
+        </div>
+    </div>
 
-        <div class="faq-card">
+     <div class="faq-card">
+        <div class="faq-header">
             <p class="faq-text">How long is a session and how often do we meet?</p>
             <div class="faq-icon-box">
                 <span class="chevron">▼</span>
             </div>
         </div>
+        <div class="faq-answer-wrapper">
+            <div class="faq-answer-content">
+                <br>
+                     <p>  A session is 50 minutes long and meet weekly on ... </p>
+                </br>
+            </div>
+        </div>
     </div>
 
-    <div class="inquiry-section">
-        <div class="faq-icon-box inquiry-sq">?</div>
-        <h3>Still have questions?</h3>
-        <p>Contact us via email or phone.</p>
-        <button class="btn btn-filled">Send inquiry</button>
+    
     </div>
-    </section>
-    </main>
 
     <footer class="dark-footer"></footer>
+
+
+
+
+
+<script>
+    document.querySelectorAll('.faq-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Optional: Close others
+            document.querySelectorAll('.faq-card').forEach(other => {
+                if (other !== card) other.classList.remove('active');
+            });
+            
+            card.classList.toggle('active');
+        });
+    });
+</script>
 
 </body>
 </html>
