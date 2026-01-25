@@ -193,6 +193,20 @@
     position: relative;
     z-index: 1;
     }
+    .hero-svg {
+    width: 100%;                /* Span the full width of the screen */
+    height: auto;               
+    display: block;
+    padding-top: 50px;
+    
+    /* THE ZOOM: Adjust the 1.2 to 1.5 for more/less zoom */
+    transform: scale(1);      
+    
+    /* Optional: Shift the image up or down if the zoom cuts off the roof */
+    transform-origin: center bottom; 
+    
+    transition: transform 0.5s ease; /* Smoothly zooms if you ever add a hover */
+    }
 
     /* If the logo is an image, ensure it doesn't get clipped */
     .logo-container img {
@@ -291,11 +305,15 @@
     }
 
     .illustration-container {
-        width: 100%;
-        margin-top: 40px;
-        padding: 0; /* Remove padding to let the illustration hit the edges if needed */
-        display: flex;
-        justify-content: center;
+    width: 100vw;               /* Force container to full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;         /* "Break out" trick to ignore parent padding */
+    margin-right: -50vw;
+    
+    overflow: hidden;           /* Clips the "zoom" so it doesn't overlap other sections */
+    line-height: 0;             /* Removes tiny white space at the bottom */
     }
 
     .profile-box {
@@ -416,7 +434,7 @@
 
     .section-title {
         font-family: 'Inter', sans-serif;
-        font-size: 28px;
+        font-size: 35px;
         font-weight: 800;
         letter-spacing: -0.5px;
         margin-bottom: 4px;
@@ -438,7 +456,6 @@
 
     /* 2. This viewport is the actual track you swipe on */
     .carousel-viewport {
-        display: flex;
         flex-direction: row; /* Ensures they stay side-by-side */
         flex-wrap: nowrap;   /* CRITICAL: Prevents cards from stacking or overlapping */
         overflow-x: auto;    /* Enables horizontal swiping */
@@ -446,6 +463,19 @@
         gap: 20px;
         padding: 0 10%;      /* Gives space for the side cards to peek in */
         -webkit-overflow-scrolling: touch;
+        display: flex;
+    overflow-x: auto;         /* Allow horizontal scrolling */
+    overflow-y: hidden;       /* STRICTLY disable vertical scrolling */
+    
+    /* Disable browser-default touch behaviors like pull-to-refresh or vertical panning */
+    touch-action: pan-x;      
+    
+    /* Optional: Smooth snapping so cards lock into place */
+    scroll-snap-type: x mandatory; 
+    
+    /* Hide scrollbars for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
     }
 
     /* Hide the ugly scrollbar */
@@ -829,7 +859,7 @@
   margin: 0 auto;
   padding: 40px 20px;
   font-family: 'Inter', sans-serif;
-  padding-top: -20px;
+  padding-top: 20px;
 }
 
 .services-header {
