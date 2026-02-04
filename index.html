@@ -113,16 +113,8 @@
        <div class="cta-stack">
     <button class="btn btn-filled">View services</button>
     <button id="videoTrigger" class="btn btn-outline">Learn more about Abi</button>
-</div>
-
-<div id="videoModal" class="video-modal">
-    <div class="video-container">
-        <span class="close-modal">&times;</span>
-        <video id="abiVideo" controls>
-            <source src="AbiVideo.mp4" type="video/mp4">
-        </video>
     </div>
-</div>
+
 
    
 
@@ -477,7 +469,14 @@
 </div>
 
 
-
+<div id="videoModal" class="video-modal">
+    <div class="video-container">
+        <span class="close-modal">&times;</span>
+        <video id="abiVideo" controls>
+            <source src="AbiVideo.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
 
     
 
@@ -500,47 +499,30 @@
 
 
     <script>
-  // 1. Select all the elements
-    const modal = document.getElementById('videoModal');
+  const modal = document.getElementById('videoModal');
     const btn = document.getElementById('videoTrigger');
     const closeBtn = document.querySelector('.close-modal');
     const video = document.getElementById('abiVideo');
 
-    // 2. Function to Open the Video
+    // Open Video
     btn.addEventListener('click', () => {
-    // We use setProperty to override the 'display: none !important' in your CSS
+    // Overrides the CSS 'none' and 'fixed' kicks in to prevent gaps
     modal.style.setProperty('display', 'flex', 'important');
-    
-    // Auto-plays the video when the popup opens
-    video.play();   
+    video.play();
     });
 
-    // 3. Function to Close and Stop the Video
+    // Close Video
     const closeModal = () => {
     modal.style.setProperty('display', 'none', 'important');
-    
-    // Crucial: This stops the video audio from playing in the background
     video.pause();
-    
-    // Optional: Rewinds the video to the beginning
     video.currentTime = 0;
     };
 
-    // 4. Close when the 'X' is clicked
     closeBtn.addEventListener('click', closeModal);
 
-    // 5. Close if the user clicks anywhere on the dark background (outside the video)
-    window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        closeModal();
-    }
-    });
-
-    // 6. Accessibility: Close when the "Escape" key is pressed
-    document.addEventListener('keydown', (event) => {
-    if (event.key === "Escape" && modal.style.display === 'flex') {
-        closeModal();
-    }
+    // Close on background click
+    window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
     });
 </script>
 

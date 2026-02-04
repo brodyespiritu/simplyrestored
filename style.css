@@ -1373,30 +1373,24 @@
         opacity: 0.7;
     }
 
-    /* This part goes OUTSIDE the media query so it works everywhere */
     .video-modal {
+    /* Change 'none' to 'none !important' to ensure it stays hidden */
     display: none !important; 
-    position: fixed; /* Lifts it off the page so it takes up 0px space */
+    
+    /* This 'fixed' property is what removes the blank space */
+    position: fixed; 
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    
+    /* This keeps it above everything else */
+    z-index: 99999; 
     background-color: rgba(0, 0, 0, 0.9);
+    
+    /* Centers the video on the screen */
     align-items: center;
     justify-content: center;
-    }
-
-    /* This part is for your mobile media query */
-    @media (max-width: 768px) {
-    .video-modal {
-        /* Ensure it stays fixed on mobile too */
-        position: fixed; 
-    }
-    
-    .video-container {
-        width: 95%; /* Make it fit the phone screen better */
-    }
     }
 
     /* Container for the video player */
