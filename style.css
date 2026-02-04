@@ -1375,11 +1375,16 @@
 
     /* Hidden by default */
     .video-modal {
-    display: none; 
-    position: fixed;
-    inset: 0; /* Shortcut for top, bottom, left, right: 0 */
-    z-index: 9999;
+    display: none !important; 
+    position: fixed; /* This prevents the "blank space" gap */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 10000;
     background-color: rgba(0, 0, 0, 0.9);
+    
+    /* Center the video within the fixed box */
     align-items: center;
     justify-content: center;
     }
