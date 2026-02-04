@@ -1221,13 +1221,13 @@
 
 
 @media screen and (min-width: 1024px) {
-    /* 1. LAYOUT RESET & CONTAINER */
+    /* 1. LAYOUT & BACKGROUND */
     main { 
         display: block !important; 
-        background-color: #f9f9f9; /* The subtle off-white from Figma */
+        background-color: #ffffff; /* Clean white background */
     }
 
-    /* 2. THE FLOATING HEADER */
+    /* 2. THE HEADER (Nav & Logo) */
     .header {
         position: absolute;
         top: 0;
@@ -1236,49 +1236,44 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 40px 100px;
+        padding: 60px 100px;
         background: transparent;
-        z-index: 100;
+        z-index: 1000;
     }
 
     .main-logo {
-        width: 320px; /* Matching the massive Figma scale */
+        width: 320px; /* Large scale from Figma */
         height: auto;
     }
 
-    /* Logic for the 4 nav items in your Figma (Home, About, etc.) */
+    /* Desktop Nav Items */
     .header::after {
         content: "Home      About      Services      Contact";
         font-family: 'Inter', sans-serif;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 500;
-        word-spacing: 25px;
-        color: #000;
+        word-spacing: 35px;
+        color: #1a1a1a;
     }
-
-    .menu-button { display: none; } /* Hide mobile burger */
 
     /* 3. THE HERO GRID */
     .hero {
         display: grid;
-        /* Col 1: Drawing | Col 2: Spacer | Col 3: Text Content */
         grid-template-columns: 1.2fr 0.1fr 1fr;
         grid-template-areas: "drawing . content";
         align-items: center;
         min-height: 100vh;
-        padding: 100px 100px 0 0; /* Bleeds left, pads right */
+        padding: 0 100px 0 0;
         margin: 0;
-        position: relative;
-        overflow: visible;
     }
 
-    /* The Architectural Drawing (Left) */
+    /* The Illustration (Left) */
     .illustration-container {
         grid-area: drawing;
-        width: 110%; /* Makes it bleed off the left edge */
-        margin-left: -5%;
-        align-self: end; /* Sits on the bottom line */
-        z-index: 2;
+        width: 115%; 
+        margin-left: -10%;
+        align-self: end;
+        margin-bottom: -10px;
     }
 
     .hero-svg {
@@ -1287,96 +1282,128 @@
         display: block;
     }
 
-    /* The Text Content (Right) */
+    /* 4. THE TEXT CONTENT (Right) */
     .hero h1 {
         grid-area: content;
-        font-family: 'Inter', sans-serif; /* Per Figma screenshot */
+        font-family: 'Inter', sans-serif;
         font-size: 72px;
-        font-weight: 800;
-        line-height: 1.05;
+        font-weight: 700;
+        line-height: 1.1;
+        color: #000000;
         text-align: right;
-        margin: 0 0 15px 0;
-        color: #000;
+        margin: 0 0 20px 0;
     }
 
     .hero-sub {
         grid-area: content;
+        font-family: 'Inter', sans-serif;
         font-size: 22px;
-        color: #444;
+        line-height: 1.5;
+        color: #4a4a4a; /* Muted dark gray */
         text-align: right;
-        margin: 180px 0 0 0; /* Manual spacing for Figma alignment */
+        margin-top: 180px; /* Vertical offset matching design */
+        max-width: 480px;
+        margin-left: auto;
     }
 
     .credentials {
         grid-area: content;
+        font-family: 'Inter', sans-serif;
         font-size: 18px;
         font-weight: 700;
+        color: #1a1a1a;
         text-align: right;
-        margin: 280px 0 0 0;
+        margin-top: 280px;
     }
 
-    /* 4. THE PILL BUTTONS (Figma Styled) */
+    /* 5. THE BUTTONS (Pill Style) */
     .hero .cta-stack {
         grid-area: content;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: 12px;
-        margin: 400px 0 0 0;
-        width: 100%;
+        gap: 15px;
+        margin-top: 400px;
     }
 
     .hero .btn {
-        width: 380px; /* Precise Figma width */
+        width: 380px; /* Precise elongated pill width */
         height: 58px;
-        border-radius: 50px; /* Exact pill shape */
+        border-radius: 50px;
         font-family: 'Inter', sans-serif;
         font-size: 16px;
         font-weight: 600;
         display: flex;
         justify-content: center;
         align-items: center;
+        text-decoration: none;
         transition: 0.3s ease;
-        border: none;
     }
 
     .btn-filled {
-        background-color: #465147 !important; /* Sage Green */
+        background-color: #465147 !important; /* The Sage Green from screenshot */
         color: #ffffff !important;
+        border: none;
     }
-
-    .btn-filled a { color: #fff; text-decoration: none; }
 
     .btn-outline {
         background-color: transparent !important;
-        border: 1.5px solid #465147 !important;
+        border: 2px solid #465147 !important;
         color: #465147 !important;
     }
 
-    /* 5. THE WAVE CURVE (A space to breath...) */
+    /* 6. THE WAVE SEPARATOR */
     .global-wave-container {
         position: relative;
-        margin-top: -120px; /* Pulls it up into the Hero territory */
-        z-index: 5;
+        margin-top: -100px; /* Overlaps bottom of building */
+        z-index: 10;
     }
 
-    .global-wave-container svg {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Logic for the curved text "A space to breath..." */
-    /* This assumes you have that text in your HTML wave container */
+    /* Curved Text on Wave */
     .global-wave-container::before {
         content: "A   s p a c e   t o   b r e a t h ,   u n p a c k ,   a n d   b e g i n   a g a i n .";
         position: absolute;
-        top: 20%;
+        top: 25%;
         left: 50%;
         transform: translateX(-50%);
         font-family: 'Inter', sans-serif;
-        font-size: 18px;
-        letter-spacing: 8px;
+        font-size: 16px;
+        letter-spacing: 6px;
         color: #465147;
-        opacity: 0.8;
+        opacity: 0.7;
+    }
+
+    /* Hidden by default */
+    .video-modal {
+    display: none; 
+    position: fixed;
+    inset: 0; /* Shortcut for top, bottom, left, right: 0 */
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    }
+
+    /* Container for the video player */
+    .video-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    }
+
+    .video-container video {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    }
+
+    /* The 'X' button */
+    .close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
     }
 }

@@ -111,9 +111,18 @@
 
 
         <div class="cta-stack">
-            <button class="btn btn-filled">View services</button>
-            <button class="btn btn-outline">Learn more about Abi</button>
-        </div>
+    <button class="btn btn-filled">View services</button>
+    <button id="videoTrigger" class="btn btn-outline">Learn more about Abi</button>
+    </div>
+
+    <div id="videoModal" class="video-modal">
+    <div class="video-container">
+        <span class="close-modal">&times;</span>
+        <video id="abiVideo" controls>
+            <source src="AbiVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
     </div>
 
    
@@ -195,7 +204,7 @@
     <div class="faq-answer-wrapper">
         <div class="faq-answer-content">
             <br>
-            <p> Our address is </p>
+            <p> Our address is 6441 96th Ave., Zeeland, Michigan 49464 </p>
             </br>
         </div>
     </div>
@@ -210,8 +219,8 @@
         </div>
         <div class="faq-answer-wrapper">
             <div class="faq-answer-content">
-                <br
-                <p>We accept most major insurance providers. Please call our office to verify your specific plan.</p>
+                <br>
+                <p> Simply Restored accepts Blue Cross Blue Shield of Michigan and Priority Health Insurance</p>
                 </br>
             </div>
         </div>
@@ -243,7 +252,7 @@
         <div class="faq-answer-wrapper">
             <div class="faq-answer-content">
                 <br>
-                     <p>  A session is 50 minutes long and meet weekly on ... </p>
+                     <p>  A session is roughly an hour long and we meet on a weekly basis depending on your needs and availability.</p>
                 </br>
             </div>
         </div>
@@ -490,26 +499,6 @@
     });
     </script>
 
-    <script>
-    const menuBtn = document.getElementById('menuToggle'); // Use the ID we added earlier
-    const closeBtn = document.getElementById('closeMenu');
-    const overlay = document.getElementById('menuOverlay');
-
-    // Open
-    menuBtn.addEventListener('click', () => {
-        overlay.classList.add('open');
-    });
-
-    // Close
-    closeBtn.addEventListener('click', () => {
-        overlay.classList.remove('open');
-    });
-
-    // Close if clicking outside the white box
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) overlay.classList.remove('open');
-    });
-    </script>
 
     <script>
      // 1. Initial Variables
@@ -620,6 +609,33 @@ window.onclick = function(event) {
         navigateTo(slideId); // This uses your existing logic to jump to the right slide
     }
 }
+    </script>
+
+    <script>
+        const modal = document.getElementById('videoModal');
+const btn = document.getElementById('videoTrigger');
+const closeBtn = document.querySelector('.close-modal');
+const video = document.getElementById('abiVideo');
+
+// Open and Play
+btn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    video.play();
+});
+
+// Close and Pause
+const closeModal = () => {
+    modal.style.display = 'none';
+    video.pause();
+    video.currentTime = 0; // Optional: Resets video to start
+};
+
+closeBtn.addEventListener('click', closeModal);
+
+// Close if they click outside the video box
+window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
     </script>
 
 
