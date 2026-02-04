@@ -500,142 +500,49 @@
 
 
     <script>
-     // 1. Initial Variables
-let currentIndex = 0;
-const track = document.getElementById('storyTrack');
-const card = document.querySelector('.story-content-card');
-const popup = document.getElementById('storyPopup');
+  // 1. Select all the elements
+    const modal = document.getElementById('videoModal');
+    const btn = document.getElementById('videoTrigger');
+    const closeBtn = document.querySelector('.close-modal');
+    const video = document.getElementById('abiVideo');
 
-// 2. Open/Close Logic
-function openStory() {
-    if (popup) {
-        popup.style.display = 'flex';
-        navigateTo('main-s1'); // Always start at the beginning
-    }
-}
-
-function closeStoryPopup() {
-    if (popup) {
-        popup.style.display = 'none';
-    }
-}
-
-// 3. Navigation Engine (Branching)
-function navigateTo(id) {
-    const slides = Array.from(document.querySelectorAll('.story-slide'));
-    const targetIndex = slides.findIndex(s => s.dataset.id === id);
+    // 2. Function to Open the Video
+    btn.addEventListener('click', () => {
+    // We use setProperty to override the 'display: none !important' in your CSS
+    modal.style.setProperty('display', 'flex', 'important');
     
-    if (targetIndex !== -1) {
-        currentIndex = targetIndex;
-        updateUI(id);
-    }
-}
+    // Auto-plays the video when the popup opens
+    video.play();   
+    });
 
-// 4. UI Update Logic (Colors & Bars)
-function updateUI(id) {
-    const segments = document.querySelectorAll('.progress-segment');
-    const currentSlide = document.querySelector(`[data-id="${id}"]`);
+    // 3. Function to Close and Stop the Video
+    const closeModal = () => {
+    modal.style.setProperty('display', 'none', 'important');
     
-    // Move the track: Each slide is 10% of the 1000% width
-    track.style.transform = `translateX(-${currentIndex * 10}%)`;
-
-    // Check for Green Background
-    const isGreen = currentSlide.classList.contains('green-bg');
-    if (isGreen) {
-        card.classList.add('green-mode');
-    } else {
-        card.classList.remove('green-mode');
-    }
-
-    // Reset and Update Progress Bars
-    segments.forEach(s => s.classList.remove('active'));
-    
-    // Logic: s1=1 bar, s2=2 bars, s3=3 bars
-    if (id.includes('s1')) segments[0].classList.add('active');
-    if (id.includes('s2')) { segments[0].classList.add('active'); segments[1].classList.add('active'); }
-    if (id.includes('s3')) { segments[0].classList.add('active'); segments[1].classList.add('active'); segments[2].classList.add('active'); }
-}
-
-// 5. Swipe Support
-let touchStartX = 0;
-
-card.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-card.addEventListener('touchend', e => {
-    let touchEndX = e.changedTouches[0].screenX;
-    let diff = touchStartX - touchEndX;
-
-    if (Math.abs(diff) > 50) { // Swipe threshold
-        if (diff > 0) moveManual(1);  // Left swipe -> Next
-        else moveManual(-1);         // Right swipe -> Prev
-    }
-}, { passive: true });
-
-function moveManual(direction) {
-    const slides = Array.from(document.querySelectorAll('.story-slide'));
-    let nextIdx = currentIndex + direction;
-
-    // Boundary check
-    if (nextIdx >= 0 && nextIdx < slides.length) {
-        currentIndex = nextIdx;
-        const nextSlideId = slides[currentIndex].dataset.id;
-        updateUI(nextSlideId);
-    }
-}
-
-// Close on background click
-window.onclick = function(event) {
-    if (event.target == popup) closeStoryPopup();
-}
-    </script>
-
-    <script>
-        function openStoryAt(slideId) {
-    if (popup) {
-        popup.style.display = 'flex';
-        navigateTo(slideId); // This jumps to the specific ID immediately
-    }
-}
-    </script>
-
-    <script>
-        function openStoryAt(slideId) {
-    const popup = document.getElementById('storyPopup');
-    if (popup) {
-        popup.style.display = 'flex';
-        navigateTo(slideId); // This uses your existing logic to jump to the right slide
-    }
-}
-    </script>
-
-    <script>
-        const modal = document.getElementById('videoModal');
-const btn = document.getElementById('videoTrigger');
-const closeBtn = document.querySelector('.close-modal');
-const video = document.getElementById('abiVideo');
-
-// Open and Play
-btn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-    video.play();
-});
-
-// Close and Pause
-const closeModal = () => {
-    modal.style.display = 'none';
+    // Crucial: This stops the video audio from playing in the background
     video.pause();
-    video.currentTime = 0; // Optional: Resets video to start
-};
+    
+    // Optional: Rewinds the video to the beginning
+    video.currentTime = 0;
+    };
 
-closeBtn.addEventListener('click', closeModal);
+    // 4. Close when the 'X' is clicked
+    closeBtn.addEventListener('click', closeModal);
 
-// Close if they click outside the video box
-window.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-    </script>
+    // 5. Close if the user clicks anywhere on the dark background (outside the video)
+    window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+    });
+
+    // 6. Accessibility: Close when the "Escape" key is pressed
+    document.addEventListener('keydown', (event) => {
+    if (event.key === "Escape" && modal.style.display === 'flex') {
+        closeModal();
+    }
+    });
+</script>
 
 
 
